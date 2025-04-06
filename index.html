@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gatito clicker</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <p id="tempo-decorrido">Idade do</p>
+
+
+  <p>💼 <strong>Dinheiro:</strong> R$ <span id="dinheiro">0</span></p>
+  <p>📈 <strong>Rendimento por segundo:</strong> R$ <span id="rps">0</span></p>
+
+  <button id="trabalhar">*Pat* *Pat*</button>
+
+
+  <div id="nome-gato-container">
+    <label for="nome-gato">Nome do Gato:</label>
+    <input type="text" id="nome-gato" placeholder="digite um nome">
+    <button onclick="salvarNomeGato()">Salvar Nome</button>
+  </div>
+  
+  <h2 id="nome-gato-exibido"></h2>
+
+  <div id="gato-container">
+    <img id="gato-img" src="img/ogtito.png" alt="Gato Bonitinho">
+  </div>
+
+  <button onclick="alternarLoja()" id="btn-loja">Lojinha de upgrades</button>
+
+  <div id="loja-itens" style="display: none;"></div>
+
+    <h2>Lojita de Gatitos</h2>
+    <div id="loja-skins" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+    </div>  
+  </div>
+
+  <br><br>
+
+  <br><br>
+  <button id="reset-btn" onclick="resetarJogo()" style="background-color:#f55; color:white;">
+    🗑️ Resetar Progresso
+  </button>  
+
+  <script src="script/script.js"></script>
+</body>
+<footer><div id="cheat-container" style="margin-top: 20px;">
+  <button onclick="alternarCheats()">💻 Cheats</button>
+  <div id="cheat-box" style="display: none; margin-top: 10px;">
+    <input type="text" id="cheat-input" placeholder="Digite o código" />
+    <button onclick="usarCheat()">Usar</button>
+    <p id="cheat-msg" style="color: green;"></p>
+  </div>
+</div>
+</footer>
+</html>
