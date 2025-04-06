@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { nome: 'Diavotito', arquivo: 'diavologatito.jpg', preco: 300, desbloqueado: false },
       { nome: 'Gatito Pucci', arquivo: 'puccigatito.jpg', preco: 400, desbloqueado: false },
       { nome: 'Tito', arquivo: 'mexicogatito.jpg', preco: 500, desbloqueado: false },
-      { nome: 'Jojito', arquivo: 'jojigatito.jpg', preco: 0, desbloqueado: false, secreta: true },
-      { nome: 'pepito', arquivo: 'pepito.jpg', preco: 0, desbloqueado: false, secreta: true }
+      { nome: 'Jojito', arquivo: 'jojigatito.jpg', preco: 10000, desbloqueado: false},
+      { nome: 'pepito', arquivo: 'pepito.jpg', preco: 472023, desbloqueado: false}
     ];
 
     let tempoInicio = localStorage.getItem('tempoInicio');
