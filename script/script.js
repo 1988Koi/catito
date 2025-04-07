@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     valorPorClique = parseFloat(localStorage.getItem('valorporclique')) || 1;
 
     
+    function abrirMinigame() {
+      window.open("rhythm.html", "_blank");
+    }
+    
+window.abrirMinigame = abrirMinigame;
+    
 
     function atualizarUI() {
         document.getElementById('dinheiro').textContent = dinheiro.toFixed(2);
@@ -362,3 +368,16 @@ function exibirNomeGato() {
   atualizarUI();
   exibirNomeGato();
   });
+
+// Função global para adicionar dinheiro a partir de outros scripts
+window.adicionarDinheiro = function(valor) {
+  if (typeof dinheiro === 'undefined') {
+    console.warn("Variável 'dinheiro' não definida.");
+    return;
+  }
+  dinheiro += valor;
+  console.log(`Dinheiro adicionado: ${valor}. Total: ${dinheiro}`);
+  if (typeof atualizarUI === 'function') {
+    atualizarUI();
+  }
+};
