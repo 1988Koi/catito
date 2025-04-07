@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "catito clickerito",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'Sem build específico necessário, copiando pasta music...' && cp -r music .",
+    "test": "echo 'Sem testes por enquanto'"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/1988Koi/catito.git"

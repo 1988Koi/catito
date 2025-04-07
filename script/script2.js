@@ -317,6 +317,7 @@ function comprarItemLoja(itemId, itemCost) {
         }
         if (itemId === 'deco_waluigi') { unlockAchievement('buy_waluigi'); }
         if (itemId === 'deco_nectar') { unlockAchievement('buy_nectar'); }
+        if (itemId === 'deco_jojito') { unlockAchievement('buy_jojito'); }
 
     } else if (itemId.startsWith('skin_')) {
         let unlockedSkins = JSON.parse(localStorage.getItem('unlockedSkins')) || [];
