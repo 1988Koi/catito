@@ -140,24 +140,46 @@ function gameLoop() {
 }
 
 function parseChart(chartText, resolution = 192, bpm = 120) {
-    const headerMatchBPM = chartText.match(/BPM:\s*(\d+(\.\d+)?)/i);
-    const headerMatchRes = chartText.match(/Resolution:\s*(\d+)/i);
-    if (headerMatchBPM) bpm = parseFloat(headerMatchBPM[1]);
-    if (headerMatchRes) resolution = parseInt(headerMatchRes[1]);
-    console.log(`Parsing chart with BPM: ${bpm}, Resolution: ${resolution}`);
-    const lines = chartText.split("\n").filter((l) => l.includes(" = N "));
-    const notes = [];
-    const tickToSeconds = (tick) => (tick / resolution) * (60 / bpm);
-    for (const line of lines) {
-        const [tickStr, noteData] = line.trim().split(" = ");
-        const tick = parseInt(tickStr.trim());
-        const parts = noteData.trim().split(/\s+/);
-        const type = parts[0]; const lane = parseInt(parts[1]);
-        if (type === "N" && !isNaN(tick) && !isNaN(lane) && lane >= 0 && lane <= 3) {
-            const time = tickToSeconds(tick); notes.push([time, lane]);
-        }
-    }
-    notes.sort((a, b) => a[0] - b[0]); return notes;
+  const headerMatchBPM = chartText.match(/BPM:\s*(\d+(\.\d+)?)/i);
+  const headerMatchRes = chartText.match(/Resolution:\s*(\d+)/i);
+  if (headerMatchBPM) bpm = parseFloat(headerMatchBPM[1]);
+  if (headerMatchRes) resolution = parseInt(headerMatchRes[1]);
+  console.log(`Parsing chart with BPM: ${bpm}, Resolution: ${resolution}`);
+
+  const lines = chartText.split("\n");
+  const notes = [];
+  const tickToSeconds = (tick) => (tick / resolution) * (60 / bpm);
+
+  let inNotesSection = false;
+
+  for (const line of lines) {
+      if (line.trim() === "[ExpertSingle]") {
+          inNotesSection = true;
+          continue;
+      }
+      if (line.trim().startsWith("[") && line.trim() !== "[ExpertSingle]") {
+          inNotesSection = false;
+          continue;
+      }
+
+      if (inNotesSection) {
+          const parts = line.trim().split(" = ");
+          if (parts.length === 2 && parts[1].startsWith("N ")) {
+              const tickStr = parts[0];
+              const noteData = parts[1].substring(2).trim().split(/\s+/); // Remove "N " e divide
+              const lane = parseInt(noteData[0]);
+              const tick = parseInt(tickStr);
+
+              if (!isNaN(tick) && !isNaN(lane) && lane >= 0 && lane <= 3) {
+                  const time = tickToSeconds(tick);
+                  notes.push([time, lane]);
+              }
+          }
+      }
+  }
+
+  notes.sort((a, b) => a[0] - b[0]);
+  return notes;
 }
 
 function startGame() {
