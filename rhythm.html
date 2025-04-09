@@ -7,6 +7,10 @@
 </head>
 <body>
 
+  <div>
+    <button class="voltar" onclick="voltarclick()">Voltar para o Clicker</button>
+  </div>
+
   <h1>Bem-vindo ao joguinho de Ritmo!</h1>
   <h2>Todas as músicas são extremamente difíceis --- Boa sorte!!</h2>
 
@@ -30,13 +34,8 @@
   <option value="joji">Roxinho</option>
 </select>
 
-<button id="achievementsButton" style="position: absolute; top: 10px; right: 100px;">Conquistas</button>
-<div id="achievementsPanel" style="display: none;
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 90%; max-width: 600px; height: 70%; max-height: 500px;
-            background-color: #f0f0f0; border: 3px solid #666; border-radius: 10px;
-            padding: 25px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-align: left; flex-direction: column;">
+<button id="achievementsButton">Conquistas 🏆</button>
+<div id="achievementsPanel">
 
     <h2 style="text-align: center; margin-top: 0;">Minhas Conquistas</h2>
 
@@ -47,7 +46,7 @@
     <button id="closeAchievementsButton" style="padding: 8px 15px; align-self: center;">Fechar</button>
 </div>
 
-<button id="openShopButton" style="position: absolute; top: 10px; right: 10px;">Abrir Loja</button>
+<button id="openShopButton">Abrir Loja 💲</button>
 
 <div id="shopContainer" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 500px; background-color: #eee; border: 2px solid #333; padding: 20px; z-index: 1000; text-align: center;">
   <div class="deco-spot shop-top-deco"
@@ -90,7 +89,6 @@
     <button id="closeShopButton">Fechar Loja</button>
 </div>
 
-
   <button onclick="startGame()">Iniciar</button>
 
   <div id="game">
@@ -102,7 +100,7 @@
     <div id="hitZone"></div>
   </div>
 
-  <div id="decorZone" style="position: absolute; bottom: 250px; left: 625px; margin-left: 20px;">
+  <div id="decorZone">
     <br>
     <div class="deco-spot" data-intended-item="deco_jojito"></div>
     <br>
@@ -121,4 +119,8 @@
 
   <script src="script/script2.js"></script>
 </body>
+
+<footer>
+  Todas as músicas e fotos não são minhas, todos os direitos reservados para seus próprios donos.
+</footer>
 </html>

@@ -13,8 +13,7 @@
     NaN
 
     Descrição do pipeline configurado
-    O meu funciona pelo npm install, faço as configurações removendo o script, depois utilizado o git add para deixar tudo pronto a um git commit e finalizo com um git push. Após tudo isso, o Azure roda um CI/CD no qual já pega estes arquivos da minha pasta do GitHub e coloca no meu site.
+    O meu funciona pelo npm install, depois utilizando o git add para deixar tudo pronto a um git commit e finalizo com um git push. Após tudo isso, o Azure roda um CI/CD no qual já pega estes arquivos da minha pasta do GitHub e coloca no meu site.
 
     Apresentação dos princípios de uma boa documentação, conforme visto em aula
     Okie!
-
